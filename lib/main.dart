@@ -1,4 +1,4 @@
-import 'package:auto_pulse/modules/home/home_page.dart';
+import 'package:auto_pulse/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,18 +16,19 @@ class AutoPulse extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
-        return MaterialApp(
+        return MaterialApp.router(
           title: 'Auto Pulse',
           debugShowCheckedModeBanner: false,
+          // theme: ThemeUtil.light,
+          // darkTheme: ThemeUtil.dark,
           theme: ThemeData(
             useMaterial3: true,
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
           ),
-          home: child,
+          routerConfig: AppRouter.routes,
         );
       },
-      child: const HomePage(),
     );
   }
 }
