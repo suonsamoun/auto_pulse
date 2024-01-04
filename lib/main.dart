@@ -23,8 +23,17 @@ class AutoPulse extends StatelessWidget {
           // darkTheme: ThemeUtil.dark,
           theme: ThemeData(
             useMaterial3: true,
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+            appBarTheme: const AppBarTheme(backgroundColor: Color(0xffe6e8ed)),
+            textTheme: Theme.of(context).textTheme.apply(
+                  fontSizeFactor: 1.sp,
+                  fontSizeDelta: 1.sp,
+                  bodyColor: const Color(0xff22215B),
+                  displayColor: const Color(0xff22215B),
+                ),
+            colorScheme:
+                ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
+              background: const Color(0xffe6e8ed),
+            ),
           ),
           routerConfig: AppRouter.routes,
         );

@@ -1,9 +1,9 @@
-import 'package:auto_pulse/another_page.dart';
 import 'package:auto_pulse/detail_login_screen.dart';
 import 'package:auto_pulse/detail_screen.dart';
 import 'package:auto_pulse/login_screen.dart';
+import 'package:auto_pulse/modules/home/home_add_my_car_page.dart';
+import 'package:auto_pulse/modules/home/home_car_list_page.dart';
 import 'package:auto_pulse/modules/home/home_page.dart';
-import 'package:auto_pulse/test_page.dart';
 import 'package:auto_pulse/widgets/shell_page.dart';
 import 'package:auto_pulse/widgets/scaffold_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -47,16 +47,17 @@ class AppRouter {
                 },
                 routes: <RouteBase>[
                   GoRoute(
-                    path: 'test',
-                    name: 'test',
+                    path: 'my-car-list',
+                    name: 'my-cars',
                     builder: (BuildContext context, GoRouterState state) {
-                      return const TestPage();
+                      return const HomeCarListPage();
                     },
                   ),
                   GoRoute(
-                    path: 'another',
+                    path: 'my-car-form',
+                    name: 'add-my-car-form',
                     builder: (BuildContext context, GoRouterState state) {
-                      return const AnotherPage();
+                      return const HomeAddMyCarPage();
                     },
                   ),
                 ],

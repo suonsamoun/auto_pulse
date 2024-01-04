@@ -22,6 +22,7 @@ class ScaffoldBottomNavigationBar extends StatelessWidget {
           elevation: 0.0,
           showSelectedLabels: false,
           showUnselectedLabels: false,
+          backgroundColor: const Color(0xffe6e8ed),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               label: 'Home',
