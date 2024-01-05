@@ -3,6 +3,7 @@ import 'package:auto_pulse/detail_screen.dart';
 import 'package:auto_pulse/login_screen.dart';
 import 'package:auto_pulse/modules/home/home_add_my_car_page.dart';
 import 'package:auto_pulse/modules/home/home_car_list_page.dart';
+import 'package:auto_pulse/modules/home/home_my_car_state.dart';
 import 'package:auto_pulse/modules/home/home_page.dart';
 import 'package:auto_pulse/widgets/shell_page.dart';
 import 'package:auto_pulse/widgets/scaffold_bottom_navigation_bar.dart';
@@ -11,7 +12,7 @@ import 'package:go_router/go_router.dart';
 
 class AppRouter {
   static final GoRouter routes = GoRouter(
-    initialLocation: '/home',
+    initialLocation: '/home/my-car-state',
     routes: <RouteBase>[
       GoRoute(
         path: '/login',
@@ -51,6 +52,13 @@ class AppRouter {
                     name: 'my-cars',
                     builder: (BuildContext context, GoRouterState state) {
                       return const HomeCarListPage();
+                    },
+                  ),
+                  GoRoute(
+                    path: 'my-car-state',
+                    name: 'my-car-state',
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const HomeMyCarState();
                     },
                   ),
                   GoRoute(
