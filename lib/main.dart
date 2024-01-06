@@ -23,6 +23,9 @@ class AutoPulse extends StatelessWidget {
           // darkTheme: ThemeUtil.dark,
           theme: ThemeData(
             useMaterial3: true,
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            splashFactory: NoSplash.splashFactory,
             appBarTheme: const AppBarTheme(backgroundColor: Color(0xffe6e8ed)),
             textTheme: Theme.of(context).textTheme.apply(
                   fontSizeFactor: 1.sp,

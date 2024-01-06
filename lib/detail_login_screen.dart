@@ -7,7 +7,15 @@ class DetailLoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Details Login Screen')),
+      appBar: AppBar(
+        title: const Text('Details Login Screen'),
+        // leading: IconButton(
+        //   icon: const Icon(Icons.arrow_back_outlined),
+        //   onPressed: () {
+        //     Navigator.of(context).pop();
+        //   },
+        // ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

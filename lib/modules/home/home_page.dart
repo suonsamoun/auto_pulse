@@ -22,7 +22,12 @@ class _HomePageState extends State<HomePage> {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('My vehicles')),
+      appBar: AppBar(
+        title: Text(
+          'My vehicles',
+          style: TextStyle(fontSize: 16.sp),
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 50.h),
         child: Center(
@@ -69,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
               HomeCircleAvatarWidget(
-                path: '/home/my-car-list',
+                path: '/home/my-car-form',
                 showSubtitle: vehicles.isEmpty,
                 subTitle:
                     'You don\'t have any vehicle yet, add a \n vehicle now!',

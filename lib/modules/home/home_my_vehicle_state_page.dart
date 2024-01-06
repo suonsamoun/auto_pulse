@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomeMyCarState extends StatelessWidget {
-  const HomeMyCarState({super.key});
+class HomeMyVehicleStatePage extends StatelessWidget {
+  const HomeMyVehicleStatePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,10 @@ class HomeMyCarState extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: const Text('Statistics'),
+          title: Text(
+            'Statistics',
+            style: TextStyle(fontSize: 16.sp),
+          ),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -33,17 +36,24 @@ class HomeMyCarState extends StatelessWidget {
                   const Text('Shortcut'),
                   GestureDetector(
                     child: const Text(
-                      'Shore more',
+                      'Show more',
                     ),
                     onTap: () {},
                   ),
                 ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   _buildStateCardMenu(title: 'Spend'),
                   _buildStateCardMenu(title: 'Spend'),
+                ],
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
                   _buildStateCardMenu(title: 'Spend'),
                   _buildStateCardMenu(title: 'Spend'),
                 ],

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class HomeCarListPage extends StatelessWidget {
-  const HomeCarListPage({super.key});
+class HomeVehicleListPage extends StatelessWidget {
+  const HomeVehicleListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,10 @@ class HomeCarListPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Car List'),
+        title: Text(
+          'My Car List',
+          style: TextStyle(fontSize: 16.sp),
+        ),
         actions: [
           IconButton(
             onPressed: () => context.goNamed('add-my-car-form'),
