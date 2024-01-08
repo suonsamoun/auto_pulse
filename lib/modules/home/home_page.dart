@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, int index) {
                           return HomeCircleAvatarWidget(
-                            path: '/home/my-car-state',
+                            path: '/home/my-vehicle-state',
                             title: vehicles[index],
                             imagePath:
                                 'https://www.extremedimensions.com/images/T/112376_1.jpg',
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
               HomeCircleAvatarWidget(
-                path: '/home/my-car-form',
+                path: '/home/my-vehicle-form',
                 showSubtitle: vehicles.isEmpty,
                 subTitle:
                     'You don\'t have any vehicle yet, add a \n vehicle now!',

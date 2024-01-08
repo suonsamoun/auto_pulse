@@ -12,7 +12,7 @@ import 'package:go_router/go_router.dart';
 
 class AppRouter {
   static final GoRouter routes = GoRouter(
-    initialLocation: '/home/my-car-form',
+    initialLocation: '/home/my-vehicle-state',
     routes: <RouteBase>[
       GoRoute(
         path: '/login',
@@ -48,22 +48,22 @@ class AppRouter {
                 },
                 routes: <RouteBase>[
                   GoRoute(
-                    path: 'my-car-list',
-                    name: 'my-cars',
+                    path: 'my-vehicle-list',
+                    name: 'my-vehicles',
                     builder: (BuildContext context, GoRouterState state) {
                       return const HomeVehicleListPage();
                     },
                   ),
                   GoRoute(
-                    path: 'my-car-state',
-                    name: 'my-car-state',
+                    path: 'my-vehicle-state',
+                    name: 'my-vehicle-state',
                     builder: (BuildContext context, GoRouterState state) {
                       return const HomeMyVehicleStatePage();
                     },
                   ),
                   GoRoute(
-                    path: 'my-car-form',
-                    name: 'add-my-car-form',
+                    path: 'my-vehicle-form',
+                    name: 'add-my-vehicle-form',
                     builder: (BuildContext context, GoRouterState state) {
                       return const HomeAddVehicleFormPage();
                     },

@@ -21,7 +21,7 @@ class ScaffoldBottomNavigationBar extends StatelessWidget {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             label: 'Home',
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home_filled),
             activeIcon: Icon(Icons.home_filled),
           ),
           BottomNavigationBarItem(
@@ -31,7 +31,7 @@ class ScaffoldBottomNavigationBar extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             label: 'My',
-            icon: Icon(Icons.person_outline),
+            icon: Icon(Icons.person),
             activeIcon: Icon(Icons.person),
           ),
         ],

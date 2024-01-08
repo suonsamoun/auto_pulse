@@ -18,7 +18,7 @@ class HomeVehicleListPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () => context.goNamed('add-my-car-form'),
+            onPressed: () => context.goNamed('add-my-vehicle-form'),
             icon: const Icon(Icons.add),
           )
         ],

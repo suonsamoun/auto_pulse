@@ -24,6 +24,10 @@ class HomeMyVehicleStatePage extends StatelessWidget {
             'Statistics',
             style: TextStyle(fontSize: 16.sp),
           ),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_outlined),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
         ),
         body: SingleChildScrollView(
           child: Column(
