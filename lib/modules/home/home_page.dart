@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
               HomeCircleAvatarWidget(
-                path: '/home/my-vehicle-form',
+                path: '/home/choose-vehicle-type',
                 showSubtitle: vehicles.isEmpty,
                 subTitle:
                     'You don\'t have any vehicle yet, add a \n vehicle now!',

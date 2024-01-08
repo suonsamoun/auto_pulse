@@ -2,6 +2,7 @@ import 'package:auto_pulse/detail_login_screen.dart';
 import 'package:auto_pulse/detail_screen.dart';
 import 'package:auto_pulse/login_screen.dart';
 import 'package:auto_pulse/modules/home/home_add_vehicle_form_page.dart';
+import 'package:auto_pulse/modules/home/home_choose_vehicle_type_page.dart';
 import 'package:auto_pulse/modules/home/home_vehicle_list_page.dart';
 import 'package:auto_pulse/modules/home/home_my_vehicle_state_page.dart';
 import 'package:auto_pulse/modules/home/home_page.dart';
@@ -12,7 +13,7 @@ import 'package:go_router/go_router.dart';
 
 class AppRouter {
   static final GoRouter routes = GoRouter(
-    initialLocation: '/home/my-vehicle-state',
+    initialLocation: '/home',
     routes: <RouteBase>[
       GoRoute(
         path: '/login',
@@ -48,6 +49,22 @@ class AppRouter {
                 },
                 routes: <RouteBase>[
                   GoRoute(
+                    path: 'choose-vehicle-type',
+                    name: 'choose-vehicle-type',
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const HomeChooseVehicleTypePage();
+                    },
+                    routes: <RouteBase>[
+                      GoRoute(
+                        path: 'my-vehicle-form',
+                        name: 'add-my-vehicle-form',
+                        builder: (BuildContext context, GoRouterState state) {
+                          return const HomeAddVehicleFormPage();
+                        },
+                      ),
+                    ],
+                  ),
+                  GoRoute(
                     path: 'my-vehicle-list',
                     name: 'my-vehicles',
                     builder: (BuildContext context, GoRouterState state) {
@@ -59,13 +76,6 @@ class AppRouter {
                     name: 'my-vehicle-state',
                     builder: (BuildContext context, GoRouterState state) {
                       return const HomeMyVehicleStatePage();
-                    },
-                  ),
-                  GoRoute(
-                    path: 'my-vehicle-form',
-                    name: 'add-my-vehicle-form',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const HomeAddVehicleFormPage();
                     },
                   ),
                 ],

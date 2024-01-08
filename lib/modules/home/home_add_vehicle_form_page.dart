@@ -13,8 +13,11 @@ class HomeAddVehicleFormPage extends StatefulWidget {
 class _HomeAddVehicleFormPageState extends State<HomeAddVehicleFormPage> {
   final _formKey = GlobalKey<FormState>();
 
-  String? _formInputVehicleBrand;
-  String? _formInputMillegue;
+  String? _inputVehicleMake;
+  String? _inputVehicleModel;
+  String? _inputVehicleYear;
+  String? _inputVehicleName;
+  String? _inputVehicleImage;
 
   @override
   Widget build(BuildContext context) {
@@ -36,22 +39,26 @@ class _HomeAddVehicleFormPageState extends State<HomeAddVehicleFormPage> {
           child: Column(
             children: [
               const SizedBox(height: 80),
-              DropdownButtonFormField(
-                items: ['Vitz', 'Prius'].map<DropdownMenuItem<String>>((value) {
-                  return DropdownMenuItem<String>(
-                      value: value, child: Text(value));
-                }).toList(),
-                value: null,
-                onChanged: (val) {},
-                validator: (val) => Validators.validate(val ?? '', 'Brand'),
+              Container(
+                width: double.infinity,
+                height: 150.w,
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Colors.grey),
+                  borderRadius: const BorderRadius.all(Radius.circular(50)),
+                ),
+              ),
+              const SizedBox(height: 10),
+              TextFormField(
+                textAlignVertical: TextAlignVertical.center,
                 style: const TextStyle(
                   fontSize: 14,
-                  color: Colors.black,
                 ),
-                icon: const Icon(Icons.keyboard_arrow_down),
-                isDense: true,
+                cursorHeight: 16,
                 decoration: InputDecoration(
-                  labelText: 'Brand',
+                  labelText: 'Name',
+                  hintText: 'eg. Toyota Prius 2010',
+                  hintMaxLines: 2,
+                  alignLabelWithHint: true,
                   labelStyle: const TextStyle(fontSize: 14),
                   hintStyle: const TextStyle(fontSize: 14),
                   border: OutlineInputBorder(
@@ -62,31 +69,81 @@ class _HomeAddVehicleFormPageState extends State<HomeAddVehicleFormPage> {
                     horizontal: 10,
                   ),
                 ),
+                onSaved: (val) => _inputVehicleName = val,
+                validator: (val) =>
+                    Validators.validate(val ?? '', 'Vehicle name'),
+              ),
+              const SizedBox(height: 10),
+              TextFormField(
+                textAlignVertical: TextAlignVertical.center,
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+                cursorHeight: 16,
+                decoration: InputDecoration(
+                  labelText: 'Make',
+                  hintMaxLines: 2,
+                  hintText: 'eg. Toyota',
+                  alignLabelWithHint: true,
+                  labelStyle: const TextStyle(fontSize: 14),
+                  hintStyle: const TextStyle(fontSize: 14),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 10,
+                  ),
+                ),
+                onSaved: (val) => _inputVehicleMake = val,
               ),
               const SizedBox(height: 8),
               TextFormField(
-                  textAlignVertical: TextAlignVertical.center,
-                  style: const TextStyle(
-                    fontSize: 14,
+                textAlignVertical: TextAlignVertical.center,
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+                cursorHeight: 16,
+                decoration: InputDecoration(
+                  labelText: 'Model',
+                  hintText: 'eg. Prius - Full Options',
+                  hintMaxLines: 2,
+                  alignLabelWithHint: true,
+                  labelStyle: const TextStyle(fontSize: 14),
+                  hintStyle: const TextStyle(fontSize: 14),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                  cursorHeight: 16,
-                  decoration: InputDecoration(
-                    labelText: 'Millegue',
-                    hintText: 'Enter current mileage',
-                    hintMaxLines: 2,
-                    alignLabelWithHint: true,
-                    labelStyle: const TextStyle(fontSize: 14),
-                    hintStyle: const TextStyle(fontSize: 14),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 10,
-                    ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 10,
                   ),
-                  onSaved: (val) => _formInputMillegue = val,
-                  validator: (val) => Validators.validate(val!, 'Millegue')),
+                ),
+                onSaved: (val) => _inputVehicleModel = val,
+              ),
+              const SizedBox(height: 8),
+              TextFormField(
+                textAlignVertical: TextAlignVertical.center,
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+                cursorHeight: 16,
+                decoration: InputDecoration(
+                  labelText: 'Year',
+                  hintMaxLines: 2,
+                  alignLabelWithHint: true,
+                  labelStyle: const TextStyle(fontSize: 14),
+                  hintStyle: const TextStyle(fontSize: 14),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 10,
+                  ),
+                ),
+                onSaved: (val) => _inputVehicleYear = val,
+              ),
               const SizedBox(height: 10),
               OutlinedButton(
                 onPressed: () {
@@ -100,11 +157,10 @@ class _HomeAddVehicleFormPageState extends State<HomeAddVehicleFormPage> {
                   padding: const EdgeInsets.symmetric(
                     vertical: 8,
                     horizontal: 10,
-                  ), // Adjust the vertical padding
-                  // Other button styling properties can be added here
+                  ),
                 ),
                 child: Text(
-                  'Complete',
+                  'Save',
                   style: TextStyle(
                     fontSize: 14,
                     color: Theme.of(context).hintColor,

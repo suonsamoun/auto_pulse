@@ -6,64 +6,53 @@ class HomeMyVehicleStatePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xff6A1B9A),
-            Color(0xffFF4081),
-          ],
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: AppBar(
+        
+        title: Text(
+          'Statistics',
+          style: TextStyle(fontSize: 16.sp),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_outlined),
+          onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: Text(
-            'Statistics',
-            style: TextStyle(fontSize: 16.sp),
-          ),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back_outlined),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              _buildStateCard(),
-              SizedBox(height: 15.sp),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text('Shortcut'),
-                  GestureDetector(
-                    child: const Text(
-                      'Show more',
-                    ),
-                    onTap: () {},
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _buildStateCard(),
+            SizedBox(height: 15.sp),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Shortcut'),
+                GestureDetector(
+                  child: const Text(
+                    'Show more',
                   ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _buildStateCardMenu(title: 'Spend'),
-                  _buildStateCardMenu(title: 'Spend'),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _buildStateCardMenu(title: 'Spend'),
-                  _buildStateCardMenu(title: 'Spend'),
-                ],
-              )
-            ],
-          ),
+                  onTap: () {},
+                ),
+              ],
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildStateCardMenu(title: 'Income'),
+                _buildStateCardMenu(title: 'Expend'),
+              ],
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildStateCardMenu(title: 'Maintenance'),
+                _buildStateCardMenu(title: 'Reminder'),
+              ],
+            )
+          ],
         ),
       ),
     );
