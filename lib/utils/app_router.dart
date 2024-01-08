@@ -56,7 +56,7 @@ class AppRouter {
                     },
                     routes: <RouteBase>[
                       GoRoute(
-                        path: 'my-vehicle-form',
+                        path: 'add-my-vehicle-form',
                         name: 'add-my-vehicle-form',
                         builder: (BuildContext context, GoRouterState state) {
                           return const HomeAddVehicleFormPage();
