@@ -1,16 +1,24 @@
 import 'dart:convert';
 
+enum VehicleType {
+  car,
+  motorcycle,
+  truck,
+  bicycle,
+  scooter,
+}
+
 class VehicleTypeModel {
-  final String name;
+  final VehicleType type;
   final String image;
 
-  VehicleTypeModel({required this.name, required this.image});
+  VehicleTypeModel({required this.type, required this.image});
 
   factory VehicleTypeModel.fromMap(Map<String, dynamic> data) {
-    return VehicleTypeModel(name: data['name'], image: data['image']);
+    return VehicleTypeModel(type: data['type'], image: data['image']);
   }
 
-  Map<String, dynamic> toMap() => {'name': name, 'image': image};
+  Map<String, dynamic> toMap() => {'type': type, 'image': image};
 
   factory VehicleTypeModel.fromJson(String data) {
     return VehicleTypeModel.fromMap(json.decode(data) as Map<String, dynamic>);
@@ -20,11 +28,11 @@ class VehicleTypeModel {
 
   static List<VehicleTypeModel> getFakeVehicleTypes() {
     return [
-      VehicleTypeModel(name: 'Car', image: 'car.png'),
-      VehicleTypeModel(name: 'Motorcycle', image: 'motorcycle.png'),
-      VehicleTypeModel(name: 'Truck', image: 'truck.png'),
-      VehicleTypeModel(name: 'Bicycle', image: 'bicycle.png'),
-      VehicleTypeModel(name: 'Scooter', image: 'scooter.png'),
+      VehicleTypeModel(type: VehicleType.car, image: 'car.png'),
+      VehicleTypeModel(type: VehicleType.motorcycle, image: 'motorcycle.png'),
+      VehicleTypeModel(type: VehicleType.truck, image: 'truck.png'),
+      VehicleTypeModel(type: VehicleType.bicycle, image: 'bicycle.png'),
+      VehicleTypeModel(type: VehicleType.scooter, image: 'scooter.png'),
     ];
   }
 }

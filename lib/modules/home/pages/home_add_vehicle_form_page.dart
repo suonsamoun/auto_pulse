@@ -1,7 +1,6 @@
+import 'package:auto_pulse/utils/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../utils/validator.dart';
 
 class HomeAddVehicleFormPage extends StatefulWidget {
   const HomeAddVehicleFormPage({super.key});

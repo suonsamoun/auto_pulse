@@ -31,7 +31,7 @@ class HomeChooseVehicleTypePage extends StatelessWidget {
         itemCount: vehicleTypes.length,
         padding: EdgeInsets.symmetric(horizontal: 20.sp),
         itemBuilder: (BuildContext context, int index) {
-          final type = vehicleTypes[index];
+          final vehicleType = vehicleTypes[index];
           return GestureDetector(
             onTap: () => context.goNamed('add-my-vehicle-form'),
             child: Container(
@@ -44,7 +44,7 @@ class HomeChooseVehicleTypePage extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  type.name,
+                  vehicleType.type.name,
                   style: TextStyle(
                     fontSize: 20.sp,
                   ),

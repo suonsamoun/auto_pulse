@@ -1,11 +1,7 @@
 import 'package:auto_pulse/detail_login_screen.dart';
 import 'package:auto_pulse/detail_screen.dart';
 import 'package:auto_pulse/login_screen.dart';
-import 'package:auto_pulse/modules/home/home_add_vehicle_form_page.dart';
-import 'package:auto_pulse/modules/home/home_choose_vehicle_type_page.dart';
-import 'package:auto_pulse/modules/home/home_vehicle_list_page.dart';
-import 'package:auto_pulse/modules/home/home_my_vehicle_state_page.dart';
-import 'package:auto_pulse/modules/home/home_page.dart';
+import 'package:auto_pulse/modules/home/routes.dart';
 import 'package:auto_pulse/widgets/shell_page.dart';
 import 'package:auto_pulse/widgets/scaffold_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -40,48 +36,7 @@ class AppRouter {
           );
         },
         branches: <StatefulShellBranch>[
-          StatefulShellBranch(
-            routes: <RouteBase>[
-              GoRoute(
-                path: '/home',
-                builder: (BuildContext context, GoRouterState state) {
-                  return const HomePage();
-                },
-                routes: <RouteBase>[
-                  GoRoute(
-                    path: 'choose-vehicle-type',
-                    name: 'choose-vehicle-type',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const HomeChooseVehicleTypePage();
-                    },
-                    routes: <RouteBase>[
-                      GoRoute(
-                        path: 'add-my-vehicle-form',
-                        name: 'add-my-vehicle-form',
-                        builder: (BuildContext context, GoRouterState state) {
-                          return const HomeAddVehicleFormPage();
-                        },
-                      ),
-                    ],
-                  ),
-                  GoRoute(
-                    path: 'my-vehicle-list',
-                    name: 'my-vehicles',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const HomeVehicleListPage();
-                    },
-                  ),
-                  GoRoute(
-                    path: 'my-vehicle-state',
-                    name: 'my-vehicle-state',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const HomeMyVehicleStatePage();
-                    },
-                  ),
-                ],
-              ),
-            ],
-          ),
+          StatefulShellBranch(routes: HomeRouter.routes),
           StatefulShellBranch(
             routes: <RouteBase>[
               GoRoute(
