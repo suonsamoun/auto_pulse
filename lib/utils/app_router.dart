@@ -1,8 +1,8 @@
 import 'package:auto_pulse/detail_login_screen.dart';
-import 'package:auto_pulse/detail_screen.dart';
 import 'package:auto_pulse/login_screen.dart';
+import 'package:auto_pulse/modules/explore/routes.dart';
 import 'package:auto_pulse/modules/home/routes.dart';
-import 'package:auto_pulse/widgets/shell_page.dart';
+import 'package:auto_pulse/modules/me/routes.dart';
 import 'package:auto_pulse/widgets/scaffold_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -37,48 +37,8 @@ class AppRouter {
         },
         branches: <StatefulShellBranch>[
           StatefulShellBranch(routes: HomeRouter.routes),
-          StatefulShellBranch(
-            routes: <RouteBase>[
-              GoRoute(
-                path: '/explore',
-                builder: (BuildContext context, GoRouterState state) {
-                  return const ShellPage(
-                    label: 'Explore',
-                    detailsPath: '/explore/details',
-                  );
-                },
-                routes: <RouteBase>[
-                  GoRoute(
-                    path: 'details',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsScreen(label: 'B');
-                    },
-                  ),
-                ],
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            routes: <RouteBase>[
-              GoRoute(
-                path: '/me',
-                builder: (BuildContext context, GoRouterState state) {
-                  return const ShellPage(
-                    label: 'Me',
-                    detailsPath: '/me/details',
-                  );
-                },
-                routes: <RouteBase>[
-                  GoRoute(
-                    path: 'details',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsScreen(label: 'C');
-                    },
-                  ),
-                ],
-              ),
-            ],
-          ),
+          StatefulShellBranch(routes: ExploreRouter.routes),
+          StatefulShellBranch(routes: MeRouter.routes),
         ],
       ),
     ],

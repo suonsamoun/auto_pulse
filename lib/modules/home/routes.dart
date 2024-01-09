@@ -19,10 +19,12 @@ class HomeRouter {
           },
           routes: [
             GoRoute(
-              path: 'add-my-vehicle-form',
+              path: 'add-my-vehicle-form/:type',
               name: 'add-my-vehicle-form',
               builder: (BuildContext context, GoRouterState state) {
-                return const HomeAddVehicleFormPage();
+                return HomeAddVehicleFormPage(
+                  vehicleType: state.pathParameters['type'],
+                );
               },
             ),
           ],

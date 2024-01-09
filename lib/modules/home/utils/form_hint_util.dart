@@ -3,21 +3,21 @@ import '../models/vehicle_type_model.dart';
 class FormHintUtil {
   FormHintUtil._();
 
-  static String hint(VehicleType vehicleType, String inputField) {
+  static String hint(String? vehicleType, String inputField) {
     final hints = {
-      VehicleType.car: [
+      VehicleType.car.name: [
         {'name': 'eg. Toyota Prius 2010'},
         {'make': 'eg. Toyota'},
         {'model': 'eg. Prius - Full Options'}
       ],
-      VehicleType.motorcycle: [
+      VehicleType.motorcycle.name: [
         {'name': 'eg. Honda Dream 2024'},
         {'make': 'eg. Honda'},
         {'model': 'eg. Dream'}
       ],
-      VehicleType.truck: [],
-      VehicleType.bicycle: [],
-      VehicleType.scooter: [],
+      VehicleType.truck.name: [],
+      VehicleType.bicycle.name: [],
+      VehicleType.scooter.name: [],
     };
 
     final matchingHints = hints[vehicleType];
@@ -25,10 +25,10 @@ class FormHintUtil {
     if (matchingHints != null) {
       final hint = matchingHints.firstWhere(
         (hint) => hint.keys.any((key) => key == inputField),
-        orElse: () => null,
+        orElse: () => <String, String>{},
       );
 
-      if (hint != null) {
+      if (hint.isNotEmpty) {
         return hint.values.first;
       }
     }

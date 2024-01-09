@@ -1,9 +1,17 @@
-import 'package:auto_pulse/utils/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'package:auto_pulse/utils/validator.dart';
+
+import '../utils/form_hint_util.dart';
+
 class HomeAddVehicleFormPage extends StatefulWidget {
-  const HomeAddVehicleFormPage({super.key});
+  final String? vehicleType;
+
+  const HomeAddVehicleFormPage({
+    Key? key,
+    this.vehicleType,
+  }) : super(key: key);
 
   @override
   State<HomeAddVehicleFormPage> createState() => _HomeAddVehicleFormPageState();
@@ -12,11 +20,24 @@ class HomeAddVehicleFormPage extends StatefulWidget {
 class _HomeAddVehicleFormPageState extends State<HomeAddVehicleFormPage> {
   final _formKey = GlobalKey<FormState>();
 
+  String? _fieldNameHint;
+  String? _fieldMakeHint;
+  String? _fieldModelHint;
+
   String? _inputVehicleMake;
   String? _inputVehicleModel;
   String? _inputVehicleYear;
   String? _inputVehicleName;
   String? _inputVehicleImage;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _fieldNameHint = FormHintUtil.hint(widget.vehicleType, 'name');
+    _fieldMakeHint = FormHintUtil.hint(widget.vehicleType, 'make');
+    _fieldModelHint = FormHintUtil.hint(widget.vehicleType, 'model');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +58,7 @@ class _HomeAddVehicleFormPageState extends State<HomeAddVehicleFormPage> {
           padding: EdgeInsets.symmetric(horizontal: 30.w),
           child: Column(
             children: [
+              Text('You selected ${widget.vehicleType}'),
               const SizedBox(height: 80),
               Container(
                 width: double.infinity,
@@ -55,7 +77,7 @@ class _HomeAddVehicleFormPageState extends State<HomeAddVehicleFormPage> {
                 cursorHeight: 16,
                 decoration: InputDecoration(
                   labelText: 'Name',
-                  hintText: 'eg. Toyota Prius 2010',
+                  hintText: _fieldNameHint,
                   hintMaxLines: 2,
                   alignLabelWithHint: true,
                   labelStyle: const TextStyle(fontSize: 14),
@@ -82,7 +104,7 @@ class _HomeAddVehicleFormPageState extends State<HomeAddVehicleFormPage> {
                 decoration: InputDecoration(
                   labelText: 'Make',
                   hintMaxLines: 2,
-                  hintText: 'eg. Toyota',
+                  hintText: _fieldMakeHint,
                   alignLabelWithHint: true,
                   labelStyle: const TextStyle(fontSize: 14),
                   hintStyle: const TextStyle(fontSize: 14),
@@ -105,7 +127,7 @@ class _HomeAddVehicleFormPageState extends State<HomeAddVehicleFormPage> {
                 cursorHeight: 16,
                 decoration: InputDecoration(
                   labelText: 'Model',
-                  hintText: 'eg. Prius - Full Options',
+                  hintText: _fieldModelHint,
                   hintMaxLines: 2,
                   alignLabelWithHint: true,
                   labelStyle: const TextStyle(fontSize: 14),

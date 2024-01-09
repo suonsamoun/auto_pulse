@@ -33,7 +33,10 @@ class HomeChooseVehicleTypePage extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           final vehicleType = vehicleTypes[index];
           return GestureDetector(
-            onTap: () => context.goNamed('add-my-vehicle-form'),
+            onTap: () => context.goNamed(
+              'add-my-vehicle-form',
+              pathParameters: {'type': vehicleType.type.name},
+            ),
             child: Container(
               margin: EdgeInsets.only(bottom: 10.sp),
               width: double.infinity,
@@ -42,13 +45,18 @@ class HomeChooseVehicleTypePage extends StatelessWidget {
                 border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: const BorderRadius.all(Radius.circular(50)),
               ),
-              child: Center(
-                child: Text(
-                  vehicleType.type.name,
-                  style: TextStyle(
-                    fontSize: 20.sp,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(vehicleType.image),
+                  Text(
+                    vehicleType.type.name,
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                    ),
                   ),
-                ),
+                ],
               ),
             ),
           );

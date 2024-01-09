@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:auto_pulse/modules/home/constants/image_constant.dart';
+
 enum VehicleType {
   car,
   motorcycle,
@@ -28,11 +30,26 @@ class VehicleTypeModel {
 
   static List<VehicleTypeModel> getFakeVehicleTypes() {
     return [
-      VehicleTypeModel(type: VehicleType.car, image: 'car.png'),
-      VehicleTypeModel(type: VehicleType.motorcycle, image: 'motorcycle.png'),
-      VehicleTypeModel(type: VehicleType.truck, image: 'truck.png'),
-      VehicleTypeModel(type: VehicleType.bicycle, image: 'bicycle.png'),
-      VehicleTypeModel(type: VehicleType.scooter, image: 'scooter.png'),
+      VehicleTypeModel(
+        type: VehicleType.car,
+        image: HomeImageConstant.car,
+      ),
+      VehicleTypeModel(
+        type: VehicleType.motorcycle,
+        image: HomeImageConstant.motor,
+      ),
+      VehicleTypeModel(
+        type: VehicleType.truck,
+        image: HomeImageConstant.truck,
+      ),
+      VehicleTypeModel(
+        type: VehicleType.bicycle,
+        image: HomeImageConstant.bike,
+      ),
+      VehicleTypeModel(
+        type: VehicleType.scooter,
+        image: HomeImageConstant.scooter,
+      ),
     ];
   }
 }
